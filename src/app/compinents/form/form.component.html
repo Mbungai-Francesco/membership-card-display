@@ -2,38 +2,22 @@
   class="flex flex-col space-y-3 p-4"
   name="loginForm"
   formGroup="loginForm"
-  (ngSubmit)="createUser($event)"
+  action=""
 >
-  <input type="text" placeholder="name" formControlName="name" />
-  <input type="email" placeholder="email" formControlName="mail" />
-  <div>
-    <p>Choose membership</p>
-    <div class="flex">
-      <input
-        type="radio"
-        name="membership"
-        formControlName="membership"
-        id="base"
-      />
-      <label for="base">Base</label>
-      <input
-        type="radio"
-        name="membership"
-        formControlName="membership"
-        id="gold"
-      />
-      <label for="gold">Gold</label>
-      <input
-        type="radio"
-        name="membership"
-        formControlName="membership"
-        id="premium"
-      />
-      <label for="premium">Premium</label>
-    </div>
+  <input type="text" placeholder="name" formControlName="name" (input)="nameHandler($event)" class="outline-none" />
+  <input type="email" placeholder="email" formControlName="mail" (input)="mailHandler($event)" class="outline-none"/>
+  <div class="flex flex-cola">
+    <label for="">Select Membership</label>
+    <select name="membership" id="" class="outline-none" (change)="subHandler($event)">
+      <option value="Silver">Silver</option>
+      <option value="Bronze">Bronze</option>
+      <option value="Gold">Gold</option>
+      <option value="Premium">Premium</option>
+    </select>
+
   </div>
   <input type="file" name="" id="" (change)="onSelectFile($event)" />
   <div class="text-center py-2 bg-slate-500">
-    <button type="submit" class="cursor-pointer">Submit</button>
+    <button type="submit" class="cursor-pointer" (click)="createUser($event)">Submit</button>
   </div>
 </form>

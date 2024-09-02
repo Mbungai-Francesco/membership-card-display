@@ -34,36 +34,45 @@ export class FormComponent {
     photo: new FormControl(null),
   });
 
+  nameHandler = (e: Event) =>{
+    const val = e.target as HTMLInputElement
+    console.log(val.value);
+    this.loginForm.patchValue({
+      name: val.value,
+    });
+  }
+  mailHandler = (e: Event) =>{
+    const val = e.target as HTMLInputElement
+    console.log(val.value);
+    this.loginForm.patchValue({
+      mail: val.value,
+    });
+  }
+  subHandler = (e: Event) =>{
+    const val = e.target as HTMLInputElement
+    console.log(val.value);
+    this.loginForm.patchValue({
+      membership: val.value,
+    });
+  }
+
   onSelectFile(event: Event): void {
     const input = event.target as HTMLInputElement;
+    console.log(input.files); 
     if (input.files && input.files.length > 0) {
       const file = input.files[0];
       const reader = new FileReader();
       reader.onload = (e: any) => {
         const res = e.target.result;
-        // console.log(typeof e.target.result);
-        // this.user!.photo =res;
         this.loginForm.patchValue({
           photo: res,
         });
-        // this.loginForm.get('file')!.updateValueAndValidity();
       };
       reader.readAsDataURL(file);
     }
-
-    // const input = event.target as HTMLInputElement;
-    // if (input.files && input.files.length > 0) {
-    //   const file = input.files[0];
-    //   this.loginForm.patchValue({
-    //     photo: file
-    //   });
-    //   this.loginForm.get('file')!.updateValueAndValidity();
-    // }
   }
   createUser = (e: Event) => {
-    e.preventDefault();
-    
-    
+    e.preventDefault();   
     console.log('clicked');
     const val = this.loginForm.value;
     console.log(val);
@@ -78,14 +87,5 @@ export class FormComponent {
       }
       this.userService.addUser(user)
     }
-    
-    // user?: User ={
-  //   id: 1,
-  //   name: 'John Doe',
-  //   email: 'mbungai@gmail.com',
-  //   sub: 'Gold',
-  //   photo: '',
-  //   exp: moment().add(2, 'years').calendar()
-  // }
   };
 }
