@@ -1,1 +1,16 @@
-<p>card works!</p>
+<div class="text-center rounded-md overflow-hidden">
+  <div class="bg-green-500">
+    <p>{{this.user?.name}}</p>
+    <p>Membership Id {{this.user?.id}}</p>
+  </div>
+  <div class="space-y-2 py-2">
+    <div class="w-[90%]">
+      <img [src]="this.user?.photo" alt="Member photo" class="w-full">
+    </div>
+    <p>{{this.user?.sub}}</p>
+    <p>Expires: {{this.user?.exp}}</p>
+  </div>
+  <div class="bg-slate-200 py-4">
+    <p>Contact: {{this.user?.email}}</p>
+  </div>
+</div>

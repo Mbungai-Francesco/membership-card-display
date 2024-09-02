@@ -1,0 +1,39 @@
+<form
+  class="flex flex-col space-y-3 p-4"
+  name="loginForm"
+  formGroup="loginForm"
+  (ngSubmit)="createUser($event)"
+>
+  <input type="text" placeholder="name" formControlName="name" />
+  <input type="email" placeholder="email" formControlName="mail" />
+  <div>
+    <p>Choose membership</p>
+    <div class="flex">
+      <input
+        type="radio"
+        name="membership"
+        formControlName="membership"
+        id="base"
+      />
+      <label for="base">Base</label>
+      <input
+        type="radio"
+        name="membership"
+        formControlName="membership"
+        id="gold"
+      />
+      <label for="gold">Gold</label>
+      <input
+        type="radio"
+        name="membership"
+        formControlName="membership"
+        id="premium"
+      />
+      <label for="premium">Premium</label>
+    </div>
+  </div>
+  <input type="file" name="" id="" (change)="onSelectFile($event)" />
+  <div class="text-center py-2 bg-slate-500">
+    <button type="submit" class="cursor-pointer">Submit</button>
+  </div>
+</form>
