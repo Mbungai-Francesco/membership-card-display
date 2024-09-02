@@ -25,7 +25,8 @@ export class UsersService {
   }
   addUser(user: User) {
     const users = this.usersSubject.getValue();
-    this.setUsers([...users, user])
+    users.push(user)
+    this.setUsers(users)
     localStorage.setItem('users', JSON.stringify(users))
   }
 }
