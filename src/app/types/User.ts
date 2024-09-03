@@ -5,6 +5,8 @@ interface User {
   sub: string;
   email: string;
   exp: string | null
+  des: string
+  age: number
 }
 
 export type { User };

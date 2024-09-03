@@ -1,10 +1,10 @@
-<div class="text-center rounded-md overflow-hidden">
+<div class="text-center rounded-md overflow-hidden cursor-pointer" [routerLink]="this.link">
   <div class="bg-green-500">
     <p>{{this.user?.name}}</p>
     <p>Membership Id {{this.user?.id}}</p>
   </div>
   <div class="space-y-2 py-2">
-    <div class="w-[90%]">
+    <div class="w-full flex justify-center">
       <img [src]="this.user?.photo" alt="Member photo" class="w-full">
     </div>
     <p>{{this.user?.sub}}</p>

@@ -17,7 +17,8 @@
 
   </div>
   <input type="file" name="" id="" (change)="onSelectFile($event)" />
-  <div class="text-center py-2 bg-slate-500">
-    <button type="submit" class="cursor-pointer" (click)="createUser($event)">Submit</button>
+  <div class="grid grid-cols-2 gap-4">
+    <input  type="button" class="cursor-pointer text-center py-2 bg-slate-500" value="Back" routerLink="">
+    <button  type="submit" class="cursor-pointer text-center py-2 bg-slate-500" (click)="createUser($event)">Submit</button>
   </div>
 </form>

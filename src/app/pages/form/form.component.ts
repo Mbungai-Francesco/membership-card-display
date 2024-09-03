@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
+import { User } from '../../types';
+import { UsersService } from '../../services/users.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import moment from 'moment';
-import { UsersService } from '../../services/users.service';
-import { User } from '../../types';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [],
+  imports: [ RouterLink ],
   templateUrl: './form.component.html',
-  styleUrl: './form.component.css',
+  styleUrl: './form.component.css'
 })
 export class FormComponent {
   users : User[] = []
@@ -83,7 +84,9 @@ export class FormComponent {
         sub: val.membership,
         photo: val.photo,
         id: this.users.length,
-        exp: moment().add(2, 'years').calendar()
+        exp: moment().add(2, 'years').calendar(),
+        des: '',
+        age: 0
       }
       this.userService.addUser(user)
     }
