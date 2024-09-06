@@ -3,7 +3,7 @@ import { User } from '../../types';
 import { UsersService } from '../../services/users.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import moment from 'moment';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -22,7 +22,7 @@ export class FormComponent {
     // console.log(this.users); 
   }
 
-  constructor( private userService: UsersService) {}
+  constructor(private router: Router, private userService: UsersService) {}
 
   ngOnInit(){
     this.getUsers()
@@ -31,8 +31,10 @@ export class FormComponent {
   loginForm = new FormGroup({
     name: new FormControl(''),
     mail: new FormControl(''),
+    age: new FormControl(0),
     membership: new FormControl(''),
     photo: new FormControl(null),
+    des: new FormControl('')
   });
 
   nameHandler = (e: Event) =>{
@@ -56,6 +58,20 @@ export class FormComponent {
       membership: val.value,
     });
   }
+  ageHandler = (e: Event) => {
+    const val = e.target as HTMLInputElement
+    console.log(val.value);
+    this.loginForm.patchValue({
+      age: Number(val.value)
+    });
+  }
+  desHandler = (e: Event) =>{
+    const val = e.target as HTMLInputElement
+    console.log(val.value);
+    this.loginForm.patchValue({
+      des: val.value,
+    });
+  }
 
   onSelectFile(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -77,7 +93,7 @@ export class FormComponent {
     console.log('clicked');
     const val = this.loginForm.value;
     console.log(val);
-    if(val.mail && val.name && val.membership && val.photo){
+    if(val.mail && val.name && val.membership && val.photo && val.age && val.des){
       const user : User = {
         name: val.name,
         email: val.mail,
@@ -85,10 +101,12 @@ export class FormComponent {
         photo: val.photo,
         id: this.users.length,
         exp: moment().add(2, 'years').calendar(),
-        des: '',
-        age: 0
+        des: val.des,
+        age: val.age,
+        views: 0
       }
       this.userService.addUser(user)
+      this.router.navigate(['/'])
     }
   };
 }

@@ -9,11 +9,12 @@ export const routes: Routes = [
     component: EmployeesComponent
   },
   {
+    path: 'form',
+    component: FormComponent
+  },
+  {
     path: ':id',
     component: DetailsComponent
   },
-  {
-    path: 'form',
-    component: FormComponent
-  }
+  
 ];

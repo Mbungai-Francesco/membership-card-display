@@ -6,6 +6,7 @@
 >
   <input type="text" placeholder="name" formControlName="name" (input)="nameHandler($event)" class="outline-none" />
   <input type="email" placeholder="email" formControlName="mail" (input)="mailHandler($event)" class="outline-none"/>
+  <input type="number" placeholder="age" formControlName="age" (input)="ageHandler($event)" class="outline-none"/>
   <div class="flex flex-col">
     <label for="">Select Membership</label>
     <select name="membership" id="" class="outline-none" (change)="subHandler($event)">
@@ -14,8 +15,8 @@
       <option value="Gold">Gold</option>
       <option value="Premium">Premium</option>
     </select>
-
   </div>
+  <textarea name="" rows="5" id="" class="border resize-none" (input)="desHandler($event)"></textarea>
   <input type="file" name="" id="" (change)="onSelectFile($event)" />
   <div class="grid grid-cols-2 gap-4">
     <input  type="button" class="cursor-pointer text-center py-2 bg-slate-500" value="Back" routerLink="">

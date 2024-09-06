@@ -29,4 +29,17 @@ export class UsersService {
     this.setUsers(users)
     localStorage.setItem('users', JSON.stringify(users))
   }
+  updateUser(user: User){
+    const users = this.usersSubject.getValue();
+    users.filter( item => item.id == user.id ? user : item)
+    this.setUsers(users)
+    localStorage.setItem('users', JSON.stringify(users))
+  }
+  getUser(id: number){
+    const users = this.usersSubject.getValue();
+    for (const item of users) {
+      if(item.id == id) return item
+    }
+    return undefined
+  }
 }

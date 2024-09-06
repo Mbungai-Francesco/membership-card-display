@@ -1,9 +1,9 @@
-<div class="grid grid-cols-4 gap-3 p-4">
+<div class="grid grid-cols-4 gap-3 p-4 h-screen overflow-y-scroll">
   @for(item of users; track $index){ 
     <app-card [user]="item"/>
   }
   <div class="flex items-center justify-center">
-    <div class="p-4 bg-green-400 w-fit h-fit cursor-pointer" routerLink="form">
+    <div class="p-4 bg-green-400 w-fit h-fit cursor-pointer" routerLink="/form">
       Add
     </div>
   </div>

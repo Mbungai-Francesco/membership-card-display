@@ -1,4 +1,4 @@
-<div class="text-center rounded-md overflow-hidden cursor-pointer" [routerLink]="this.link">
+<div class="text-center rounded-md overflow-hidden cursor-pointer" (click)="onClick()">
   <div class="bg-green-500">
     <p>{{this.user?.name}}</p>
     <p>Membership Id {{this.user?.id}}</p>
@@ -8,6 +8,7 @@
       <img [src]="this.user?.photo" alt="Member photo" class="w-full">
     </div>
     <p>{{this.user?.sub}}</p>
+    <p>Views: {{this.user?.views}}</p>
     <p>Expires: {{this.user?.exp}}</p>
   </div>
   <div class="bg-slate-200 py-4">

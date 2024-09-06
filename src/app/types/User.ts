@@ -7,6 +7,7 @@ interface User {
   exp: string | null
   des: string
   age: number
+  views: number
 }
 
 export type { User };
